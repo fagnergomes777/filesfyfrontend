@@ -81,6 +81,14 @@ body {
   color: #1e293b;
   line-height: 1.5;
   transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ===== LAYOUT DO APP ===== */
@@ -113,6 +121,7 @@ main {
   justify-content: space-between;
   align-items: center;
   height: 64px;
+  flex-wrap: nowrap;
 }
 
 .navbar-brand {
@@ -177,6 +186,8 @@ main {
   gap: var(--spacing-lg);
   flex: 1;
   justify-content: space-between;
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .navbar-brand {
@@ -199,6 +210,9 @@ main {
   gap: var(--spacing-lg);
   flex: 1;
   justify-content: center;
+  flex-wrap: nowrap;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .nav-link {
@@ -210,6 +224,7 @@ main {
   transition: color var(--transition-fast);
   position: relative;
   padding: 4px 2px;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -236,6 +251,8 @@ main {
   align-items: center;
   gap: var(--spacing-sm);
   margin-left: var(--spacing-lg);
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 /* ===== BOTÕES ===== */
@@ -1518,6 +1535,13 @@ body.theme-dark.high-contrast {
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {
+  .container,
+  .home-container,
+  .subscription-container {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+
   .logo-image {
     width: 42px;
     height: 42px;
@@ -1603,6 +1627,28 @@ body.theme-dark.high-contrast {
 
   .recovery-actions button {
     width: 100%;
+  }
+
+  .plan-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navbar-container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .navbar-nav {
+    gap: var(--spacing-md);
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .navbar-actions {
+    margin-left: 0;
   }
 }
 

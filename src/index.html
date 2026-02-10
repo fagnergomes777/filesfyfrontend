@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google-client-id" content="USE_YOUR_GOOGLE_CLIENT_ID_FROM_CONSOLE.apps.googleusercontent.com">
+  <title>Filesfy - Recuperação de Dados</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <div class="header-left">
+        <img src="images/FilesFy.png" alt="Filesfy Logo" class="logo-image-desktop" onerror="this.style.display='none'">
+        <h1>Filesfy - Recuperação de Dados</h1>
+      </div>
+      <div class="header-right">
+        <span id="user-info" class="user-info" style="display:none;"></span>
+        <button id="logout-btn" class="btn-logout" style="display:none;">Sair</button>
+      </div>
+    </header>
+
+    <div class="access-menu" role="region" aria-label="Ferramentas de acessibilidade">
+      <button id="access-menu-toggle" class="access-menu-toggle" aria-expanded="false" aria-controls="access-menu-panel" data-readable="Abrir painel de acessibilidade">♿ Acessibilidade</button>
+      <button id="btn-theme-toggle" class="access-menu-toggle" aria-label="Alternar tema" title="Alternar entre tema claro e escuro (Ctrl+Shift+T)" data-readable="Alternar tema">🌓 Tema</button>
+      <div id="access-menu-panel" class="access-panel" hidden>
+        <div class="access-actions">
+          <button id="btn-zoom-in" class="access-btn" aria-label="Aumentar zoom" title="Aumentar zoom" data-readable="Aumentar zoom">A+</button>
+          <button id="btn-zoom-out" class="access-btn" aria-label="Reduzir zoom" title="Reduzir zoom" data-readable="Reduzir zoom">A-</button>
+          <button id="btn-contrast" class="access-btn" aria-label="Ativar alto contraste" title="Ativar alto contraste" data-readable="Ativar alto contraste">Contraste</button>
+          <button id="btn-hover-read" class="access-btn" aria-label="Ativar leitura ao passar o mouse" title="Ativar leitura ao passar o mouse" data-readable="Ativar leitura ao passar o mouse">Leitura</button>
+        </div>
+        <div class="access-status-row">
+          <span id="access-status" class="access-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+
+    <main id="wizard"></main>
+
+    <footer class="app-footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <span class="footer-logo">©</span>
+          <span class="footer-copyright">2026 Filesfy Inc. Todos os direitos reservados.</span>
+        </div>
+        <div class="footer-links">
+          <a href="#" onclick="showPrivacyPolicy(event)">Política de Privacidade</a>
+          <span class="separator">•</span>
+          <a href="#" onclick="showProductPolicy(event)">Política de Produtos</a>
+          <span class="separator">•</span>
+          <a href="#" onclick="showLicenseAgreement(event)">Contratos de Licença</a>
+          <span class="separator">•</span>
+          <a href="#" onclick="showCookies(event)">Preferências de cookies</a>
+          <span class="separator">•</span>
+          <a href="#" onclick="showAbout(event)">Sobre o Filesfy</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./api.js"></script>
+  <script src="./auth.js"></script>
+  <script src="./renderer.js"></script>
+</body>
+</html>
