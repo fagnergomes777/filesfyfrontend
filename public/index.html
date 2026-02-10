@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Filesfy - Gerenciamento de Planos e Recuperação de Dados">
+  <meta name="google-client-id" content="USE_YOUR_GOOGLE_CLIENT_ID_FROM_CONSOLE.apps.googleusercontent.com">
+  <meta name="theme-color" content="#0ea5e9">
+  <title>Filesfy - Recuperção de Dados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <nav class="navbar">
+        <div class="navbar-container">
+          <div class="navbar-brand" onclick="renderWizard('home'); return false;" style="cursor: pointer;">
+            <img src="images/FilesFy.png" alt="Filesfy Logo" class="logo-image" onerror="this.style.display='none'">
+            <div class="logo-text-container">
+              <h1 class="logo">Filesfy</h1>
+              <span class="logo-subtitle">Recuperção de Dados</span>
+            </div>
+          </div>
+          
+          <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="navbar-menu" id="navbar-menu">
+            <nav class="navbar-nav" id="navbar-sections">
+              <a href="#recupera" class="nav-link">O que recupera</a>
+              <a href="#dispositivos" class="nav-link">Dispositivos suportados</a>
+              <a href="#como-funciona" class="nav-link">Como funciona</a>
+              <a href="#usuarios" class="nav-link">O que os usuários dizem</a>
+              <a href="#planos" class="nav-link">Comparação de versões</a>
+              <a href="#suporte" class="nav-link">Suporte técnico</a>
+            </nav>
+            <div class="navbar-actions">
+              <button id="login-btn" class="btn-primary">Fazer Upgrade PRO</button>
+              <span id="user-info" class="user-info" style="display:none;"></span>
+              <button id="logout-btn" class="btn-secondary" style="display:none;">Sair</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Accessibility Menu -->
+    <div class="access-menu" role="region" aria-label="Ferramentas de acessibilidade">
+      <button id="btn-theme-toggle" class="btn-icon access-menu-toggle" aria-label="Alternar tema" title="Alternar entre tema claro e escuro">🌙</button>
+      <button id="access-menu-toggle" class="access-menu-toggle" aria-expanded="false" aria-controls="access-menu-panel">♿ Acessibilidade</button>
+      <div id="access-menu-panel" class="access-panel" hidden>
+        <div class="access-actions">
+          <button id="btn-zoom-in" class="access-btn" aria-label="Aumentar zoom">A+</button>
+          <button id="btn-zoom-out" class="access-btn" aria-label="Reduzir zoom">A-</button>
+          <button id="btn-contrast" class="access-btn" aria-label="Ativar alto contraste">Contraste</button>
+          <button id="btn-hover-read" class="access-btn" aria-label="Ativar leitura">Leitura</button>
+        </div>
+        <span id="access-status" class="access-status" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="wizard" class="wizard-container"></main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-container">
+        <div class="footer-copyright">
+          <p>Copyright &copy; 2024 - 2026 Filesfy. Todos os direitos reservados.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#" onclick="openLegalModal('privacy'); return false;">Política de Privacidade</a>
+          <span class="separator">|</span>
+          <a href="#" onclick="openLegalModal('license'); return false;">Contrato de Licença</a>
+          <span class="separator">|</span>
+          <a href="#" onclick="openLegalModal('terms'); return false;">Termos e Condições</a>
+          <span class="separator">|</span>
+          <a href="#" onclick="openAboutModal(); return false;">Sobre Filesfy</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal Dialogs -->
+  <dialog id="modal-dialog" class="modal-dialog">
+    <div class="modal-content">
+      <button class="modal-close" onclick="document.getElementById('modal-dialog').close()">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </dialog>
+
+  <script src="api.js"></script>
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
