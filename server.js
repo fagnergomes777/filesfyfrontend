@@ -12,7 +12,7 @@ const http = require('http');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.WEB_PORT || 3000;
+const PORT = process.env.PORT || process.env.WEB_PORT || 3000;
 const API_URL = process.env.API_URL || 'http://localhost:3001';
 
 // Middleware
